@@ -98,15 +98,8 @@
             </div>
         </div>
         <script>
-            users = [
-                // {
-                //     name: 'amita',
-                //     email: "FE",
-                //     contact:12345,
-                //     state:'gh',
-                //     gender:'female'
-                // },
-            ];
+            var table = document.getElementById('table-tbody');
+            users = [ ];
 
             function submitFormValues() {
                 const userObj = {
@@ -117,48 +110,49 @@
                     gender: document.getElementById('gender').value
 
                 };
-                count = 0;
                 console.log("hi");
-                var table = document.getElementById('table-tbody');
                 users.push(userObj);
                 table.innerHTML = '';
-                users.forEach(ele => {
+                createTable();
+            }
+
+            function createTable() {
+                users.forEach((ele,indexxx) => {
                     console.log("hi");
-                    count ++;
                     var tr = document.createElement('tr');
                     var td = document.createElement('td');
-                    let srno = document.createTextNode(count);
+                    let srno = document.createTextNode(indexxx + 1);
                     td.append(srno);
                     tr.append(td);
                     td.setAttribute("class", "border border-slate-300");
 
                     var td = document.createElement('td');
-                    let name = document.createTextNode(userObj.name);
+                    let name = document.createTextNode(ele.name);
                     td.append(name);
                     tr.append(td);
                     td.setAttribute("class", "border border-slate-300");
 
                     var td = document.createElement('td');
-                    let email = document.createTextNode(userObj.email);
+                    let email = document.createTextNode(ele.email);
                     td.append(email);
                     tr.append(td);
                     td.setAttribute("class", "border border-slate-300");
 
                     var td = document.createElement('td');
-                    let mob = document.createTextNode(userObj.contact);
+                    let mob = document.createTextNode(ele.contact);
                     td.append(mob);
                     tr.append(td);
                     td.setAttribute("class", "border border-slate-300");
 
 
                     var td = document.createElement('td');
-                    let state = document.createTextNode(userObj.state);
+                    let state = document.createTextNode(ele.state);
                     td.append(state);
                     tr.append(td);
                     td.setAttribute("class", "border border-slate-300");
 
                     var td = document.createElement('td');
-                    let gender = document.createTextNode(userObj.gender);
+                    let gender = document.createTextNode(ele.gender);
                     td.append(gender);
                     tr.append(td);
                     td.setAttribute("class", "border border-slate-300");
@@ -175,6 +169,12 @@
                     var td = document.createElement('td');
                     var button = document.createElement('button');
                     let deletebutton = document.createTextNode("Delete");
+                    button.addEventListener('click', () => {
+                        table.innerHTML = '';
+                        console.log(users[indexxx]);
+                        users.splice(indexxx, 1);
+                        createTable();
+                    });
                     button.append(deletebutton);
                     button.setAttribute("class", "p-2 bg-fuchsia-600 rounded-lg");
                     td.setAttribute("class", "border border-slate-300");
@@ -184,14 +184,13 @@
                 });
             }
             function resetFormValues() {
-                    console.log("reset call");
-                    document.getElementById('name').value = '';
-                    document.getElementById('email').value = '';
-                    document.getElementById('mob').value = '';
-                    document.getElementById('state').value = '';
-                    document.getElementById('gender').value = '';
-
-                }
+                console.log("reset call");
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('mob').value = '';
+                document.getElementById('state').value = '';
+                document.getElementById('gender').value = '';
+            }
         </script>
     </body>
 </html>
