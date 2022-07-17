@@ -92,43 +92,42 @@
                             <th class="border border-slate-300" colspan="2">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td class="border border-slate-300">1</td>
-                            <td class="border border-slate-300">Amita Kale</td>
-                            <td class="border border-slate-300">amita.kale@olaorg.com</td>
-                            <td class="border border-slate-300">7249292595</td>
-                            <td class="border border-slate-300">Maharashtra</td>
-                            <td class="border border-slate-300">Female</td>
-                            <td>
-                                <button class="p-2 bg-fuchsia-600 rounded-lg">Edit</button>
-                            </td>
-                            <td>
-                                <button class="p-2 bg-fuchsia-600 rounded-lg">Delete</button>
-                            </td>
-                        </tr>
+                    <tbody id="table-tbody">
+                        
                     </tbody>
+
                 </table>
             </div>
         </div> 
         <script>
             users = [
-                {  
-                    Name: 'amita',
-                    email: "FE",
-                    contact: "Khodad",
-                    state:'gh',
-                    gender:'female'
-                },
+                // {  
+                //     name: 'amita',
+                //     email: "FE",
+                //     contact:12345,
+                //     state:'gh',
+                //     gender:'female'
+                // },
             ];
+            
             function submitFormValues() {
-                count=1;
-                var table = document.getElementById('tableId');
+                const userObj = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                contact: document.getElementById('mob').value,
+                state: document.getElementById('state').value,
+                gender: document.getElementById('gender').value,
+
+          };
+                count=0;
+                console.log("hi");
+                var table = document.getElementById('table-tbody');
+                users.push(userObj);
+                table.innerHTML = '';
                 users.forEach(ele => {
-                    console.log("hi")
+                    console.log("hi");
                     count++;
                     var tr = document.createElement('tr');
-
                     var td = document.createElement('td');
                     let srno = document.createTextNode(count);
                     td.append(srno);
@@ -136,22 +135,42 @@
                     td.setAttribute("class", "border border-slate-300");
 
                     var td = document.createElement('td');
-                    let name = document.getElementById("name").value;
+                    let name = document.createTextNode(userObj.name);
                     td.append(name);
-                    let email = document.getElementById("email").value;
+                    tr.append(td);
+                    td.setAttribute("class", "border border-slate-300");
+                    
+                    var td = document.createElement('td');
+                    let email = document.createTextNode(userObj.email);
                     td.append(email);
-                    let mob = document.getElementById("mob").value;
+                    tr.append(td);
+                    td.setAttribute("class", "border border-slate-300");
+
+                    var td = document.createElement('td');
+                   let mob = document.createTextNode(userObj.contact);
                     td.append(mob);
-                    let state = document.getElementById("state").value;
+                    tr.append(td);
+                    td.setAttribute("class", "border border-slate-300");
+
+                        
+                    var td = document.createElement('td');
+                    let state = document.createTextNode(userObj.state);
                     td.append(state);
-                    let gender = document.getElementById("gender").value;
+                    tr.append(td);
+                    td.setAttribute("class", "border border-slate-300");
+
+                    var td = document.createElement('td');
+                    let gender = document.createTextNode(userObj.gender);
                     td.append(gender);
+                    tr.append(td);
+                    td.setAttribute("class", "border border-slate-300");
 
                     var td = document.createElement('td');
                     var button = document.createElement('button');
                     let editbutton = document.createTextNode("Edit");
                     button.append(editbutton);
                     button.setAttribute("class", "p-2 bg-fuchsia-600 rounded-lg");
+                    td.setAttribute("class", "border border-slate-300");
                     td.append(button);
                     tr.append(td);
 
@@ -160,9 +179,9 @@
                     let deletebutton = document.createTextNode("Delete");
                     button.append(deletebutton);
                     button.setAttribute("class", "p-2 bg-fuchsia-600 rounded-lg");
+                    td.setAttribute("class", "border border-slate-300");
                     td.append(button);
                     tr.append(td);
-
                     table.append(tr);
                 });
 
