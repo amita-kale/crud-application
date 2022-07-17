@@ -1,111 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
-</head>
-<body>
-    <div class=" grid gap-x-7  grid-cols-3 h-screen">
-        <div class="border-solid border-2 border-amber-600 drop-shadow-md bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 ">
-           <form>
-            <h1 class="text-black text-2xl font-bold text-center mt-3">User Registration Form</h1>
-            <table class="mt-10  ml-14">
-                
-                <tr>
-                    <td class="py-3"><label for="name"> Name:</label></td>
-                    <td><input class="p-1" type="text" id="name" name="name"></td>
-                </tr>
-            
-                
-                <tr>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <div class=" grid gap-x-7  grid-cols-3 h-screen">
+            <div class="border-solid border-2 border-amber-600 drop-shadow-md bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 ">
+                <form>
+                    <h1 class="text-black text-2xl font-bold text-center mt-3">User Registration Form</h1>
+                    <table class="mt-10  ml-14">
 
-                    <td class="py-3">
-                        <label for="email">Email:</label>
-                    </td>
-                    <td>
-                        <input  class="p-1" type="email" id="email" name="email">
-                    </td>   
-                </tr>
-                <tr>
-                    <td class="py-3">
-                        <label for="mob">Contact:</label>
-                    </td>
-                    <td>
-                        <input  class="p-1" type="number" id="mob" name="mb" placeholder="+91">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="py-3">
+                        <tr>
+                            <td class="py-3">
+                                <label for="name">
+                                    Name:</label>
+                            </td>
+                            <td><input class="p-1" type="text" id="name" name="name"></td>
+                        </tr>
 
-                        <label for="state">State:</label>
 
-                    </td>
-                    <td>
-                        <select class="p-1" name="state" id="state">
-                            <option value="Gujarat" selected>Gujarat</option>
-                            <option value="Maharashtra">Maharashtra</option>
-                            <option value="Kerala">Kerala</option>
-                            <option value="Karnataka">Karnataka</option>
-                        </select>
+                        <tr>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td class="py-3"><label for="lname">Gender:</label></td>
-                    <td>
-                        <input type="radio" id="gender" name="gender" value="female" / checked>
-                       Female
-                        <input type="radio" id="gender1" name="gender" value="male"/>
-                        Male 
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <button class="p-2 m-2 bg-gray-300 border-solid border-2 border-indigo-600 rounded-lg" type="submit" onclick="submitFormValues()" form="nameform" value="Submit">Submit</button>
-                        &nbsp;<button class="p-2 m-2 bg-gray-300 border-solid border-2 border-indigo-600 rounded-lg" type="reset" form="nameform" value="reset">Reset</button>
-                    </td>
-                </tr>
+                            <td class="py-3">
+                                <label for="email">Email:</label>
+                            </td>
+                            <td>
+                                <input class="p-1" type="email" id="email" name="email">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-3">
+                                <label for="mob">Contact:</label>
+                            </td>
+                            <td>
+                                <input class="p-1" type="number" id="mob" name="mb" placeholder="+91">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-3">
 
-            </table>
-        </form>
-        </div>
-        <div class="bg-gray-300 col-span-2">
-            <h1 class="text-red-500 text-2xl  text-center mt-4 font-bold">User List</h1>
-            <table class=" border-black-400 border-separate bg-white  border border-slate-400 m-20" id="tableId" >
-                <thead>
-                <tr>
-                    <th class="border border-slate-300">Sr.no</th>
-                    <th class="border border-slate-300">Name</th>
-                    <th class="border border-slate-300">Email</th>
-                    <th class="border border-slate-300">Contact</th>
-                    <th class="border border-slate-300">State</th>
-                    <th class="border border-slate-300">Gender</th>
-                    <th class="border border-slate-300" colspan="2">Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="border border-slate-300">1</td>
-                        <td class="border border-slate-300">Amita Kale</td>
-                        <td class="border border-slate-300">amita.kale@olaorg.com</td>
-                        <td class="border border-slate-300">7249292595</td>
-                        <td class="border border-slate-300">Maharashtra</td>
-                        <td class="border border-slate-300">Female</td>
-                        <td><button class="p-2 bg-fuchsia-600 rounded-lg">Edit</button></td>
-                        <td><button class="p-2 bg-fuchsia-600 rounded-lg">Delete</button></td>
-                    </tr>       
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <script>
-        function submitFormValues(){
-            alert("Hi");
-        }
-    </script>
-</body>
+                                <label for="state">State:</label>
+
+                            </td>
+                            <td>
+                                <select class="p-1" name="state" id="state">
+                                    <option value="Gujarat" selected>Gujarat</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Kerala">Kerala</option>
+                                    <option value="Karnataka">Karnataka</option>
+                                </select>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-3">
+                                <label for="lname">Gender:</label>
+                            </td>
+                            <td>
+                                <input type="radio" id="gender" name="gender" value="female" / checked>
+                                Female
+                                <input type="radio" id="gender1" name="gender" value="male"/>
+                                Male
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <button class="p-2 m-2 bg-gray-300 border-solid border-2 border-indigo-600 rounded-lg" type="submit" onclick="submitFormValues()" form="nameform" value="Submit">Submit</button>
+                                &nbsp;<button class="p-2 m-2 bg-gray-300 border-solid border-2 border-indigo-600 rounded-lg" type="reset" form="nameform" value="reset">Reset</button>
+                            </td>
+                        </tr>
+
+                    </table>
+                </form>
+            </div>
+            <div class="bg-gray-300 col-span-2">
+                <h1 class="text-red-500 text-2xl  text-center mt-4 font-bold">User List</h1>
+                <table class=" border-black-400 border-separate bg-white  border border-slate-400 m-20" id="tableId">
+                    <thead>
+                        <tr>
+                            <th class="border border-slate-300">Sr.no</th>
+                            <th class="border border-slate-300">Name</th>
+                            <th class="border border-slate-300">Email</th>
+                            <th class="border border-slate-300">Contact</th>
+                            <th class="border border-slate-300">State</th>
+                            <th class="border border-slate-300">Gender</th>
+                            <th class="border border-slate-300" colspan="2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border border-slate-300">1</td>
+                            <td class="border border-slate-300">Amita Kale</td>
+                            <td class="border border-slate-300">amita.kale@olaorg.com</td>
+                            <td class="border border-slate-300">7249292595</td>
+                            <td class="border border-slate-300">Maharashtra</td>
+                            <td class="border border-slate-300">Female</td>
+                            <td>
+                                <button class="p-2 bg-fuchsia-600 rounded-lg">Edit</button>
+                            </td>
+                            <td>
+                                <button class="p-2 bg-fuchsia-600 rounded-lg">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div> 
+        <script>
+            users = [
+                {  
+                    Name: 'amita',
+                    email: "FE",
+                    contact: "Khodad",
+                    state:'gh',
+                    gender:'female'
+                },
+            ];
+            function submitFormValues() {
+                count=1;
+                var table = document.getElementById('tableId');
+                users.forEach(ele => {
+                    console.log("hi")
+                    count++;
+                    var tr = document.createElement('tr');
+
+                    var td = document.createElement('td');
+                    let srno = document.createTextNode(count);
+                    td.append(srno);
+                    tr.append(td);
+                    td.setAttribute("class", "border border-slate-300");
+
+                    var td = document.createElement('td');
+                    let name = document.getElementById("name").value;
+                    td.append(name);
+                    let email = document.getElementById("email").value;
+                    td.append(email);
+                    let mob = document.getElementById("mob").value;
+                    td.append(mob);
+                    let state = document.getElementById("state").value;
+                    td.append(state);
+                    let gender = document.getElementById("gender").value;
+                    td.append(gender);
+
+                    var td = document.createElement('td');
+                    var button = document.createElement('button');
+                    let editbutton = document.createTextNode("Edit");
+                    button.append(editbutton);
+                    button.setAttribute("class", "p-2 bg-fuchsia-600 rounded-lg");
+                    td.append(button);
+                    tr.append(td);
+
+                    var td = document.createElement('td');
+                    var button = document.createElement('button');
+                    let deletebutton = document.createTextNode("Delete");
+                    button.append(deletebutton);
+                    button.setAttribute("class", "p-2 bg-fuchsia-600 rounded-lg");
+                    td.append(button);
+                    tr.append(td);
+
+                    table.append(tr);
+                });
+
+            }
+        </script>
+    </body>
 </html>
