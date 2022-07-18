@@ -100,6 +100,8 @@
         <script>
             var table = document.getElementById('table-tbody');
             users = [];
+            isEdit=false;
+            indexOfEdit=-1;
 
             function submitFormValues() {
                 console.log("Submit clicked");
@@ -112,8 +114,12 @@
         
 
                 };
-              
-                users.push(userObj);
+                if(isEdit===true){
+                    console.log(indexOfEdit);
+                    indexOfEdit
+                }
+              else{users.push(userObj);}
+                
                 document.getElementById('name').value = '';
                 document.getElementById('email').value = '';
                 document.getElementById('mob').value = '';
@@ -169,11 +175,13 @@
                     let editbutton = document.createTextNode("Edit");
                     button.addEventListener('click',()=>{
                         console.log("edit clicked");
-                        name= document.getElementById('name').value,
-                        email=document.getElementById('email').value,
-                        contact=document.getElementById('mob').value,
-                        state=document.getElementById('state').value,
-                        gender=document.getElementById('gender').value
+                        document.getElementById('name').value= users[indexxx].name;
+                        document.getElementById('email').value= users[indexxx].email;
+                        document.getElementById('mob').value= users[indexxx].contact;
+                        document.getElementById('state').value= users[indexxx].state;
+                        document.getElementById('gender').value= users[indexxx].gender;
+                        isEdit=true;
+                        indexOfEdit=indexxx;
                     })
                     button.append(editbutton);
                     button.setAttribute("class", "p-2 bg-fuchsia-600 rounded-lg");
