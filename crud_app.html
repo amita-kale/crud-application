@@ -58,12 +58,12 @@
                         </tr>
                         <tr>
                             <td class="py-3">
-                                <label for="lname">Gender:</label>
+                                <label id="gender" >Gender:</label>
                             </td>
                             <td>
-                                <input type="radio" id="gender" name="gender" value="female" / checked>
+                                <input type="radio"   name="gender" value="female"  checked>
                                 Female
-                                <input type="radio" id="gender1" name="gender" value="male"/>
+                                <input type="radio"  name="gender" value="male"/>
                                 Male
                             </td>
                         </tr>
@@ -99,26 +99,33 @@
         </div>
         <script>
             var table = document.getElementById('table-tbody');
-            users = [ ];
+            users = [];
 
             function submitFormValues() {
+                console.log("Submit clicked");
                 const userObj = {
                     name: document.getElementById('name').value,
                     email: document.getElementById('email').value,
                     contact: document.getElementById('mob').value,
                     state: document.getElementById('state').value,
                     gender: document.getElementById('gender').value
+        
 
                 };
-                console.log("hi");
+              
                 users.push(userObj);
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('mob').value = '';
+                document.getElementById('state').value = '';
+                document.getElementById('gender').value = '';
                 table.innerHTML = '';
                 createTable();
             }
 
             function createTable() {
                 users.forEach((ele,indexxx) => {
-                    console.log("hi");
+                   
                     var tr = document.createElement('tr');
                     var td = document.createElement('td');
                     let srno = document.createTextNode(indexxx + 1);
@@ -160,6 +167,14 @@
                     var td = document.createElement('td');
                     var button = document.createElement('button');
                     let editbutton = document.createTextNode("Edit");
+                    button.addEventListener('click',()=>{
+                        console.log("edit clicked");
+                        name= document.getElementById('name').value,
+                        email=document.getElementById('email').value,
+                        contact=document.getElementById('mob').value,
+                        state=document.getElementById('state').value,
+                        gender=document.getElementById('gender').value
+                    })
                     button.append(editbutton);
                     button.setAttribute("class", "p-2 bg-fuchsia-600 rounded-lg");
                     td.setAttribute("class", "border border-slate-300");
