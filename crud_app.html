@@ -16,8 +16,7 @@
 
                         <tr>
                             <td class="py-3">
-                                <label for="name">
-                                    Name:</label>
+                                <label for="name"> Name:</label>
                             </td>
                             <td><input class="p-1" type="text" id="name" name="name"></td>
                         </tr>
@@ -58,13 +57,13 @@
                         </tr>
                         <tr>
                             <td class="py-3">
-                                <label id="gender" >Gender:</label>
+                                <label >Gender:</label>
                             </td>
                             <td>
-                                <input type="radio"   name="gender" value="female"  checked>
-                                Female
-                                <input type="radio"  name="gender" value="male"/>
-                                Male
+                                <input type="radio" id="gender"  name="gender" value="female">
+                                 <label>Female</label>
+                                <input type="radio" id="gender"  name="gender" value="male"/>
+                                <label>Male</label>
                             </td>
                         </tr>
                         <tr>
@@ -99,21 +98,30 @@
         </div>
         <script>
             var table = document.getElementById('table-tbody');
-            users = [];
-            isEdit=false;
+            users = []; //created empty array to push object /form values
+            isEdit=false; //initially edit button value is false ,when user click on edit button it will be true.
             indexOfEdit=-1;
 
             function submitFormValues() {
                 console.log("Submit clicked");
+                
+                var radios = document.getElementsByName('gender');
+                for (var radio of radios)
+                {
+                    if (radio.checked) {
+                      var f=radio.value;
+                    }
+                }
                 const userObj = {
                     name: document.getElementById('name').value,
                     email: document.getElementById('email').value,
                     contact: document.getElementById('mob').value,
                     state: document.getElementById('state').value,
-                    gender: document.getElementById('gender').value
-        
-
+                    gender: f
+                    
                 };
+                console.log(gender);
+                //code for edit button 
                 if(isEdit===true){
                     console.log(indexOfEdit);
                     users[indexOfEdit]=userObj;
@@ -122,15 +130,16 @@
                     let b=document.getElementById('submit-button');
                     b.innerText='Submit';
                 }
+                //code for submit button 
               else{
-             
-                users.push(userObj);}
+                    users.push(userObj);
+                 }
                 
                 document.getElementById('name').value = '';
                 document.getElementById('email').value = '';
                 document.getElementById('mob').value = '';
                 document.getElementById('state').value = '';
-                document.getElementById('gender').value = '';
+                // document.getElementById('gender').value = '';
                 table.innerHTML = '';
                 createTable();
             }
