@@ -57,13 +57,13 @@
                         </tr>
                         <tr>
                             <td class="py-3">
-                                <label>Gender:</label>
+                                <label >Gender:</label>
                             </td>
                             <td>
-                                <input type="radio" id="gender"  name="gender" value="female"  checked>
-                                 <label for="gender">Female</label>
-                                <input type="radio" id="gender1" name="gender" value="male"/>
-                                <label for="gender1">Male</label>
+                                <input type="radio" id="gender"  name="gender" value="female">
+                                 <label>Female</label>
+                                <input type="radio" id="gender"  name="gender" value="male"/>
+                                <label>Male</label>
                             </td>
                         </tr>
                         <tr>
@@ -104,12 +104,20 @@
 
             function submitFormValues() {
                 console.log("Submit clicked");
+                
+                var radios = document.getElementsByName('gender');
+                for (var radio of radios)
+                {
+                    if (radio.checked) {
+                      var f=radio.value;
+                    }
+                }
                 const userObj = {
                     name: document.getElementById('name').value,
                     email: document.getElementById('email').value,
                     contact: document.getElementById('mob').value,
                     state: document.getElementById('state').value,
-                    gender: document.getElementsByName('gender').value
+                    gender: f
                     
                 };
                 console.log(gender);
@@ -131,7 +139,7 @@
                 document.getElementById('email').value = '';
                 document.getElementById('mob').value = '';
                 document.getElementById('state').value = '';
-                document.getElementById('gender').value = '';
+                // document.getElementById('gender').value = '';
                 table.innerHTML = '';
                 createTable();
             }
